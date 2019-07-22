@@ -1,9 +1,10 @@
 .test-block {
   position: relative;
-  color: transparent;
+  color: white;
   background-color: orange;
   right: -100%;
   padding: 20px;
+  margin-bottom: 30px;
   border-radius: 10px;
   transition: background-color 1000ms 500ms, right 1000ms, color 500ms 1000ms;
 }
