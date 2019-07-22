@@ -7,7 +7,7 @@ export default function TestBlock({ scrollY }) {
   const [startAnimation, setStartAnimation] = useState(false);
 
   useEffect(() => {
-    console.log("Running useEffect...", startAnimation);
+    // console.log("Running useEffect...", startAnimation);
     if (rect) {
       if (rect.y < scrollY + window.innerHeight) {
         setStartAnimation(true);
