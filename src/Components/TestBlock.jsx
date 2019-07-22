@@ -6,26 +6,21 @@ export default function TestBlock({ scrollY }) {
   const [rect, ref] = useClientRect();
   const [startAnimation, setStartAnimation] = useState(false);
 
-  // if (rect) {
-  //   if (rect.y > scrollY + window.innerHeight) setStartAnimation(true);
-  //   console.log("Visible: ", startAnimation, rect.y, scrollY + window.innerHeight);
-  // }
-
   useEffect(() => {
+    console.log("Running useEffect...", startAnimation);
     if (rect) {
       if (rect.y < scrollY + window.innerHeight) {
         setStartAnimation(true);
-        // console.log("Visible: ", startAnimation, rect.y, scrollY + window.innerHeight);
-      }
-      if (startAnimation && rect.y > scrollY + window.innerHeight) {
+      } else if (startAnimation /*  && rect.y > scrollY + window.innerHeight */) {
         setStartAnimation(false);
       }
+      // console.log("Visible: ", startAnimation, rect.y, scrollY + window.innerHeight);
     }
   }, [rect, scrollY, startAnimation]);
 
   return (
     <div className={`test-block${startAnimation ? " start-animation" : ""}`} ref={ref}>
-      Amazing and well-hydrated content stream here.
+      Amazing and well-hydrated content stream delivery portal here.
     </div>
   );
 }
