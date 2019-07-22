@@ -1,8 +1,20 @@
 .App {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 2000px;
-  background-color: orange;
+  align-items: flex-end;
+  height: 1000px;
+  background-color: white;
   overflow-x: hidden;
+  animation-name: color-change;
+  animation-duration: 1000ms;
+  animation-fill-mode: forwards;
+}
+
+@keyframes color-change {
+  from {
+    background-color: white;
+  }
+  to {
+    background-color: orange;
+  }
 }
