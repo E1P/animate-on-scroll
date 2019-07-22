@@ -1,14 +1,15 @@
 .test-block {
   position: relative;
-  color: orangered;
+  color: transparent;
   background-color: orange;
   right: -100%;
   padding: 20px;
   border-radius: 10px;
-  transition: background-color 1000ms 500ms, right 1000ms;
+  transition: background-color 1000ms 500ms, right 1000ms, color 500ms 1000ms;
 }
 
 .start-animation {
+  color: orangered;
   background-color: whitesmoke;
   right: 0;
 }
