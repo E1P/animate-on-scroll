@@ -10,14 +10,9 @@ function App() {
     setScrollY(e.target.scrollingElement.scrollTop);
   };
 
-  // useEffect(() => {
-  //   window.addEventListener("scroll", throttle(handleScroll, 300));
-  //   return () => window.addEventListener("scroll", throttle(handleScroll, 300));
-  // });
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
-    return () => window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", throttle(handleScroll, 300));
+    return () => window.addEventListener("scroll", throttle(handleScroll, 300));
   });
 
   return (
