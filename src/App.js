@@ -4,6 +4,7 @@ import "./App.css";
 import TestBlock from "./Components/TestBlock";
 
 function App() {
+  const [isLoaded, setIsLoaded] = useState(false);
   const [scrollY, setScrollY] = useState(0);
 
   const handleScroll = e => {
@@ -12,13 +13,16 @@ function App() {
 
   useEffect(() => {
     window.addEventListener("scroll", throttle(handleScroll, 300));
+    setIsLoaded(true);
     return () => window.addEventListener("scroll", throttle(handleScroll, 300));
-  });
+  }, []);
 
   return (
-    <div className="App">
-      <TestBlock scrollY={scrollY} />
-    </div>
+    isLoaded && (
+      <div className="App">
+        <TestBlock scrollY={scrollY} />
+      </div>
+    )
   );
 }
 
