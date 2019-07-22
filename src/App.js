@@ -1,24 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import throttle from "lodash.throttle";
+import "./App.css";
+import TestBlock from "./Components/TestBlock";
 
 function App() {
+  const [scrollY, setScrollY] = useState(0);
+
+  const handleScroll = e => {
+    setScrollY(e.target.scrollingElement.scrollTop);
+  };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", throttle(handleScroll, 300));
+  //   return () => window.addEventListener("scroll", throttle(handleScroll, 300));
+  // });
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.addEventListener("scroll", handleScroll);
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <TestBlock scrollY={scrollY} />
     </div>
   );
 }

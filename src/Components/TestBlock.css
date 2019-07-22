@@ -1,0 +1,23 @@
+.test-block {
+  position: relative;
+  color: orangered;
+  background-color: orange;
+  right: -100%;
+  padding: 20px;
+  border-radius: 10px;
+  transition: background-color 1000ms 500ms, right 1000ms;
+}
+
+.start-animation {
+  background-color: whitesmoke;
+  right: 0;
+}
+
+/* @keyframes changeColor {
+  0% {
+    background: orange;
+  }
+  100% {
+    background: whitesmoke;
+  }
+} */
